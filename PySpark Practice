@@ -1,1 +1,60 @@
-# PySpark Practice
+data = [
+    (7369, "SMITH", "CLERK", 7902, "17-12-1980", 800, None, 20),
+    (7499, "ALLEN", "SALESMAN", 7698, "20-02-1981", 1600, 300, 30),
+    (7521, "WARD", "SALESMAN", 7698, "22-02-1981", 1250, 500, 30),
+    (7566, "JONES", "MANAGER", 7839, "04-02-1981", 2975, None, 20),
+    (7654, "MARTIN", "SALESMAN", 7698, "21-09-1981", 1250, 1400, 30),
+    (7698, "SGR", "MANAGER", 7839, "05-01-1981", 2850, None, 30),
+    (7782, "RAVI", "MANAGER", 7839, "06-09-1981", 2450, None, 10),
+    (7788, "SCOTT", "ANALYST", 7566, "19-04-1987", 3000, None, 20),
+    (7839, "KING", "PRESIDENT", None, "01-11-1981", 5000, None, 10),
+    (7844, "TURNER", "SALESMAN", 7698, "09-08-1981", 1500, 0, 30),
+    (7876, "ADAMS", "CLERK", 7788, "23-05-1987", 1100, None, 20),
+    (7900, "JAMES", "CLERK", 7698, "12-03-1981", 950, None, 30),
+    (7902, "FORD", "ANALYST", 7566, "12-03-1981", 3000, None, 20),
+    (7934, "MILLER", "CLERK", 7782, "01-03-1982", 1300, None, 10),
+    (1234, "SEKHAR", "doctor", 7777, None, 667, 78, 80),
+    (7369, "SMITH", "CLERK", 7902, "17-12-1980", 800, None, 20),
+    (7499, "ALLEN", "SALESMAN", 7698, "20-02-1981", 1600, 300, 30),
+    (7521, "WARD", "SALESMAN", 7698, "22-02-1981", 1250, 500, 30),
+    (7566, "JONES", "MANAGER", 7839, "04-02-1981", 2975, None, 20),
+    (7654, "MARTIN", "SALESMAN", 7698, "21-09-1981", 1250, 1400, 30),
+    (7698, "SGR", "MANAGER", 7839, "05-01-1981", 2850, None, 30),
+    (7782, "RAVI", "MANAGER", 7839, "06-09-1981", 2450, None, 10),
+    (7788, "SCOTT", "ANALYST", 7566, "19-04-1987", 3000, None, 20),
+    (7839, "KING", "PRESIDENT", None, "01-11-1981", 5000, None, 10),
+    (7844, "TURNER", "SALESMAN", 7698, "09-08-1981", 1500, 0, 30),
+    (7876, "ADAMS", "CLERK", 7788, "23-05-1987", 1100, None, 20),
+    (7900, "JAMES", "CLERK", 7698, "12-03-1981", 950, None, 30),
+    (7902, "FORD", "ANALYST", 7566, "12-03-1981", 3000, None, 20),
+    (7934, "MILLER", "CLERK", 7782, "01-03-1982", 1300, None, 10),
+    (1234, "RAM", "CLERK", 7457, None, 494, 588, 80),
+    (None, None, None, None, None, None, None, None),
+    (None, None, None, None, None, None, None, None),
+    (None, None, None, None, None, None, None, None)
+]
+
+
+
+
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType,DateType,FloatType,DoubleType
+
+
+schema = StructType([
+    StructField('EMPNO', StringType(), True),
+    StructField('ENAME', StringType(), True),
+    StructField('JOB', StringType(), True),
+    StructField('MGR', StringType(), True),
+    StructField('HIREDATE', StringType(), True),
+    StructField('SAL', StringType(), True),	
+    StructField('COMM', StringType(), True),	
+    StructField('DEPTNO', StringType(), True)
+    ])
+
+
+
+
+
+df_bd = spark.createDataFrame(data, schema=schema)
+
+df_bd.display()
